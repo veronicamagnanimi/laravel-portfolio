@@ -57,3 +57,26 @@ body {
 //     padding: 20px;
 // }
 
+// table index
+.table {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.thead-dark {
+    background-color: #343a40;
+    color: white;
+}
+.table-hover tbody tr:hover {
+    background-color: rgba(214, 51, 132, 0.1);
+}
+.btn-primary {
+    background-color: #d63384;
+    border-color: #d63384;
+}
+.btn-primary:hover {
+    background-color: darken(#d63384, 10%);
+    border-color: darken(#d63384, 10%);
+}
+
