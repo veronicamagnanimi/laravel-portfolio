@@ -57,7 +57,9 @@ body {
 //     padding: 20px;
 // }
 
-// table index
+//CRUD
+
+// index
 .table {
     background-color: white;
     border-radius: 10px;
@@ -79,4 +81,49 @@ body {
     background-color: darken(#d63384, 10%);
     border-color: darken(#d63384, 10%);
 }
+
+//show
+.project-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+
+    .card {
+        background-color: white;
+        border-radius: 10px;
+        padding: 2rem;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 75%;
+        border: 2px solid $primary-color;
+    }
+
+    h2 {
+        color: $primary-color;
+        font-weight: bold;
+    }
+
+    h5 {
+        color: $secondary-color;
+        font-style: italic;
+    }
+
+    p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: darken($secondary-color, 15%);
+    }
+
+    .btn-primary {
+        background-color: $primary-color;
+        border-color: $primary-color;
+        &:hover {
+            background-color: darken($primary-color, 10%);
+            border-color: darken($primary-color, 10%);
+        }
+    }
+}
+
+
 
