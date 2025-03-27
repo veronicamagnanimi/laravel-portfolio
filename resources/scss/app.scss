@@ -1,14 +1,19 @@
 @import '~bootstrap/scss/bootstrap';
 
+// colors
+$primary-color: #d63384; 
+$secondary-color: #6c757d; 
+$background-color: #f8f9fa; 
+$gradient-start: #e83e8c;
+$gradient-end: #adb5bd; 
 
-// Definizione dei colori personalizzati
-$primary-color: #d63384; // Rosa acceso
-$secondary-color: #6c757d; // Grigio scuro
-$background-color: #f8f9fa; // Grigio chiaro
-$gradient-start: #e83e8c; // Rosa sfumato
-$gradient-end: #adb5bd; // Grigio sfumato
+// body
+body {
+    background-color: $background-color;
+    color: $secondary-color;
+}
 
-// Navbar personalizzata
+// navbar
 .navbar {
     background: linear-gradient(135deg, $gradient-start, $gradient-end);
     .navbar-brand {
@@ -22,26 +27,19 @@ $gradient-end: #adb5bd; // Grigio sfumato
         }
     }
     .navbar-nav .nav-link {
-        font-weight: bold; // Grassetto
-        font-size: 1.1rem; // Aumenta leggermente la dimensione del testo
-        transition: color 0.3s ease-in-out, transform 0.2s ease-in-out; // Animazione fluida
+        font-weight: bold; 
+        font-size: 1.1rem; 
+        transition: color 0.3s ease-in-out, transform 0.2s ease-in-out; 
     
         &:hover {
-            color: #ffcccc !important; // Cambia il colore quando passi sopra con il mouse
-            transform: scale(1.05); // Leggera ingranditura sull'hover
+            color: #ffcccc !important; 
+            transform: scale(1.05); 
         }
     }
     
-    
 }
 
-// Corpo della pagina
-body {
-    background-color: $background-color;
-    color: $secondary-color;
-}
-
-// Pulsanti personalizzati
+// buttons
 .btn-primary {
     background-color: $primary-color;
     border-color: $primary-color;
@@ -51,7 +49,7 @@ body {
     }
 }
 
-// Footer o altre sezioni personalizzate
+// footer and other sections
 // .footer {
 //     background: linear-gradient(135deg, $gradient-end, $gradient-start);
 //     color: white;
