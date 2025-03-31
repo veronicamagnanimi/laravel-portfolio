@@ -12,8 +12,10 @@
         <section class="mt-4">
             <p class="lead">{{ $project->content }}</p>
         </section>
+        <hr>
+        <a class="btn btn-primary" href="{{ route('projects.edit', $project) }}">Edit</a>
 
-        <a href="{{ route('projects.index') }}" class="btn btn-primary btn-sm mt-3">Back to Projects</a>
+        <a href="{{ route('projects.index') }}" class="btn btn-primary btn-sm mt-5">Back to Projects</a>
     </div>
 </div>
 @endsection
