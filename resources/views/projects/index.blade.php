@@ -3,6 +3,9 @@
 @section('content')
 
 <div class="container mt-4">
+<div class="text-center my-3">
+        <a class="btn btn-primary" href="{{ route('projects.create') }}">Create</a>
+    </div>
     <div class="table-responsive">
         <table class="table table-striped table-hover text-center">
             <thead class="thead-dark">
@@ -20,7 +23,7 @@
                     <td> {{ $project->author }}</td>
                     <td> {{ $project->description }}</td>
                     <td>
-                        <a href="{{ route('projects.show', $project->id) }}" class="btn btn-primary btn-sm">Show Content</a>
+                        <a href="{{ route('projects.show', $project->id) }}" class="btn btn-primary btn-sm">Show</a>
                     </td>
                 </tr>
                 @endforeach

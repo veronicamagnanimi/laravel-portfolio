@@ -20,7 +20,8 @@
         </p>
         <hr>
         <div class="social">
-            <h4>Social:</h4>
+            <h4>Show my projects</h4>
+            <a class="btn btn-primary" href="{{ route("projects.index") }}">Projects</a>
         </div>
     </div>
 </div>
