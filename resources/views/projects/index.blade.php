@@ -1,9 +1,10 @@
-@extends('layouts.projects')
+@extends('layouts.app')
 @section('title', 'All projects')
 @section('content')
 
 <div class="container mt-4">
 <div class="text-center my-3">
+    <h1 class="text-center my-4">All Projects</h1>
         <a class="btn btn-primary" href="{{ route('projects.create') }}">Create</a>
     </div>
     <div class="table-responsive">
@@ -12,6 +13,7 @@
                 <tr>
                     <th scope="col">Title</th>
                     <th scope="col">Author</th>
+                    <th scope="col">Category</th>
                     <th scope="col">Description</th>
                     <th scope="col"></th>
                 </tr>
@@ -21,6 +23,7 @@
                 <tr>
                     <td> {{ $project->title }}</td>
                     <td> {{ $project->author }}</td>
+                    <td> {{ $project->category }}</td>
                     <td> {{ $project->description }}</td>
                     <td>
                         <a href="{{ route('projects.show', $project->id) }}" class="btn btn-primary btn-sm">Show</a>

@@ -35,6 +35,7 @@ class ProjectController extends Controller
         $newProject = new Project();
         $newProject->title = $data['title'];
         $newProject->author = $data['author'];
+        $newProject->category = $data['category'];
         $newProject->description = $data['description'];
         $newProject->content = $data['content'];
 
@@ -67,6 +68,7 @@ class ProjectController extends Controller
         $data = $request->all();
         $project->title = $data['title'];
         $project->author = $data['author'];
+        $project->category = $data['category'];
         $project->description = $data['description'];
         $project->content = $data['content'];
         $project->update();
