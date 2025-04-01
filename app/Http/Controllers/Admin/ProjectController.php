@@ -14,8 +14,8 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::all();
-        return view('projects.index', compact('projects'));
+        $projects = Project::with('type')->get(); // Carica i progetti con il tipo associato
+    return view('projects.index', compact('projects'));
         
     }
 
