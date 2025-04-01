@@ -6,6 +6,7 @@
         <div class="card shadow-lg p-4 text-center w-75 project-details">
             <h2 class="fw-bold">{{ $project->title }}</h2>
             <h5 class="fst-italic">By {{ $project->author }}</h5>
+            <p>{{ $project->type->name ?? 'No type assigned' }}</p>
             <hr>
             <p>{{ $project->description }}</p>
 

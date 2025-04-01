@@ -16,10 +16,16 @@
                 <label for="author">Author</label>
                 <input type="text" name="author" id="author" class="form-control" required>
             </div>
+
             <div class="form-group mt-3">
-                <label for="category">Category</label>
-                <input type="text" name="category" id="category" class="form-control" required>
+                <label for="author">Type</label>
+                <select name="type_id" id="type_id" class="form-control" required>
+                    @foreach ($types as $type)
+                        <option value="{{ $type->id }}">{{ $type->name }}</option>
+                    @endforeach
+                </select>
             </div>
+
 
             <div class="form-group mt-3">
                 <label for="description">Description</label>

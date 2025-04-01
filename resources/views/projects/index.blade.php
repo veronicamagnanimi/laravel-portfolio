@@ -13,7 +13,7 @@
                 <tr>
                     <th scope="col">Title</th>
                     <th scope="col">Author</th>
-                    <th scope="col">Category</th>
+                    <th scope="col">Type</th>
                     <th scope="col">Description</th>
                     <th scope="col"></th>
                 </tr>
@@ -23,7 +23,6 @@
                 <tr>
                     <td> {{ $project->title }}</td>
                     <td> {{ $project->author }}</td>
-                    <td> {{ $project->category }}</td>
                     <td> {{ $project->description }}</td>
                     <td>
                         <a href="{{ route('projects.show', $project->id) }}" class="btn btn-primary btn-sm">Show</a>
