@@ -15,8 +15,8 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::with('type')->get(); // Carica i progetti con il tipo associato
-    return view('projects.index', compact('projects'));
-        
+        return view('projects.index', compact('projects'));
+
     }
 
     /**
@@ -42,18 +42,17 @@ class ProjectController extends Controller
         $newProject->content = $data['content'];
 
         $newProject->save();
-        return redirect()->route('projects.show', $newProject->id)
-        ->with('message', 'Project created successfully');
+        return redirect()->route('projects.show', $newProject->id);
     }
 
     /**
      * Display the specified resource.
      */
     public function show(Project $project)
-    { 
+    {
         $type = $project->type;
         return view('projects.show', compact('project', 'type'));
-        
+
     }
 
     /**
