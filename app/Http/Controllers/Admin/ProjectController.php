@@ -44,7 +44,11 @@ class ProjectController extends Controller
         $newProject->content = $data['content'];
 
         $newProject->save();
-        $newProject->technologies()->attach($data['technologies']);
+        // $newProject->technologies()->attach($data['technologies']);
+        if (isset($data['technologies']) && is_array($data['technologies'])) {
+            $newProject->technologies()->attach($data['technologies']);
+        }
+
         return redirect()->route('projects.show', $newProject->id);
     }
 

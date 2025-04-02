@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
 use App\Models\Project;
+use App\Models\Technology;
 
 class ProjectsTableSeeder extends Seeder
 {
@@ -23,6 +24,9 @@ class ProjectsTableSeeder extends Seeder
             
             $newProject->type_id = rand(1, 5);
             $newProject->save();
+
+            $technologies = Technology::inRandomOrder()->limit(rand(1,3))->pluck('id');
+            $newProject->technologies()->attach($technologies);
         }
     }
 }

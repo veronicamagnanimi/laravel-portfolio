@@ -6,13 +6,18 @@
         <div class="card shadow-lg p-4 text-center w-75 project-details">
             <h2 class="fw-bold">{{ $project->title }}</h2>
             <h5 class="fst-italic">By {{ $project->author }}</h5>
+
             <p>Type: {{ $project->type->name ?? 'No type assigned' }}</p>
             <!-- many to many -->
-            @forelse($project->technologies as $technology)
-            <span class="badge" style="background-color: {{ $technology->color }}">{{ $technology->name }}</span>
-            @empty
-            <p>No technologies assegned</p>
-            @endforelse
+            <div class="d-flex flex-wrap gap-2 justify-content-center">
+                @forelse($project->technologies as $technology)
+                    <span class="badge" style="background-color: {{ $technology->color }}">
+                        {{ $technology->name }}
+                    </span>
+                @empty
+                    <p>No technologies assigned</p>
+                @endforelse
+            </div>
             <hr>
             <p>{{ $project->description }}</p>
 
@@ -45,8 +50,8 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <form action="{{ route('projects.destroy', $project) }}" method="POST">
-                        <input type="submit" class="btn btn-danger" value="Delete">                       
-                         @csrf
+                        <input type="submit" class="btn btn-danger" value="Delete">
+                        @csrf
                         @method('DELETE')
                     </form>
                 </div>
