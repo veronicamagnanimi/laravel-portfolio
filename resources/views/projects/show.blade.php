@@ -7,6 +7,12 @@
             <h2 class="fw-bold">{{ $project->title }}</h2>
             <h5 class="fst-italic">By {{ $project->author }}</h5>
             <p>Type: {{ $project->type->name ?? 'No type assigned' }}</p>
+            <!-- many to many -->
+            @forelse($project->technologies as $technology)
+            <span class="badge" style="background-color: {{ $technology->color }}">{{ $technology->name }}</span>
+            @empty
+            <p>No technologies assegned</p>
+            @endforelse
             <hr>
             <p>{{ $project->description }}</p>
 
