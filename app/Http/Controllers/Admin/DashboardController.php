@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Auth;
 class DashboardController extends Controller
 {
     public function index() {
-       return 'My portfolio';
+        $user = Auth::user();
+        return
+        //$user->name;
+        //$user->email;
+        $user->password;
     }
 }
