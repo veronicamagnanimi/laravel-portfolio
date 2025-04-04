@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Project;
 use App\Models\Type;
 use App\Models\Technology;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -43,12 +44,14 @@ class ProjectController extends Controller
         $newProject->description = $data['description'];
         $newProject->content = $data['content'];
 
-        $newProject->save();
-        // $newProject->technologies()->attach($data['technologies']);
-        if (isset($data['technologies']) && is_array($data['technologies'])) {
-            $newProject->technologies()->attach($data['technologies']);
+        if(array_key_exists('image', $data)) {
+            $img_url = Storage::putFile('projects', $data['image']);
+            $newProject->image = $img_url;
         }
 
+        $newProject->save();
+        $newProject->technologies()->attach($data['technologies']);
+        
         return redirect()->route('projects.show', $newProject->id);
     }
 
@@ -83,6 +86,13 @@ class ProjectController extends Controller
         $project->type_id = $data['type_id'];
         $project->description = $data['description'];
         $project->content = $data['content'];
+
+        if(array_key_exists('image', $data)) {
+            Storage::delete($project->image);
+            $img_url = Storage::putFile('projects', $data['image']);
+            $project->image = $img_url;
+        }
+
         $project->update();
         
         // controllo
@@ -100,6 +110,10 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+        if($project->image) {
+            Storage::delete($project->image);
+        }
+
         $project->delete();
         return redirect()->route('projects.index');
     }

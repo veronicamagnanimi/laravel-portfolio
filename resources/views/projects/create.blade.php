@@ -3,8 +3,10 @@
 
 @section('content')
 
+<img src="{{ asset('storage/' . $project->image)}}" alt="{{$project->title}}">
+
     <div class="d-flex justify-content-center">
-        <form action="{{ route('projects.store') }}" method="POST" class="w-50">
+        <form action="{{ route('projects.store') }}" method="POST" class="w-50" enctype="multipart/form-data">
             @csrf
 
             <div class="form-group">
@@ -15,6 +17,11 @@
             <div class="form-group mt-3">
                 <label for="author">Author</label>
                 <input type="text" name="author" id="author" class="form-control" required>
+            </div>
+
+            <div class="form-group mt-3">
+                <label for="image">Image</label>
+                <input type="file" name="image" id="image" class="form-control">
             </div>
 
             <div class="form-group mt-3">
